@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> 
+</head>
+
+<body>
+    <canvas id="goban"></canvas>
+
+	<script type="text/javascript" src="js/JGoban.js"></script>   
+    
+    <div id="getX"></div>
+    <div id="getY"></div>
+
+    <script type="text/javascript">
+        var canvas = document.getElementById('goban');
+        var ctx = canvas.getContext('2d');
+        var gx;
+        var gy;
+        canvas.addEventListener('mousemove', function onMouseMove(evt){
+            gx = evt.layerX;
+            gy = evt.layerY;
+            
+            document.getElementById('getX').innerHTML = "mouse X:" + gx;
+            document.getElementById('getY').innerHTML = "mouse Y:" + gy;
+        });
+        
+    </script>
+</body>
