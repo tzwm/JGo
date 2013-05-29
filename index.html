@@ -2,7 +2,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> 
+    <link rel="stylesheet" href="css/custom.css" />
+    <script src="js/jquery-2.0.1.min.js"></script> 
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/helper.js"></script>
 </head>
 
 <body>
@@ -14,6 +17,8 @@
     <div id="getY"></div>
 
     <script type="text/javascript">
+        createGoban();
+
         var canvas = document.getElementById('goban');
         var ctx = canvas.getContext('2d');
         var gx;
@@ -21,9 +26,18 @@
         canvas.addEventListener('mousemove', function onMouseMove(evt){
             gx = evt.layerX;
             gy = evt.layerY;
-            
+            gg = toPoint(gx, gy);
+            gx = gg[0];
+            gy = gg[1];
             document.getElementById('getX').innerHTML = "mouse X:" + gx;
             document.getElementById('getY').innerHTML = "mouse Y:" + gy;
+
+            createGoban();
+            var tmp = toCoor(gx, gy);
+            ctx.fillStyle='#000000';
+            ctx.moveTo(tmp[0], tmp[1]);
+            ctx.arc(tmp[0], tmp[1], 15, 0, Math.PI*2, true);
+            ctx.fill();
         });
         
     </script>
