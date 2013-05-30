@@ -1,25 +1,27 @@
-function Goban(_lineNum){
-    var canvas = document.getElementById('goban');
-    var ctx = canvas.getContext('2d');
+function Goban(_lineNum, _canvas){
+    this.canvas = _canvas; 
+    this.ctx = this.canvas.getContext('2d');
     var lineNum = _lineNum; 
     var drawLineI, drawLineNumI;
 
     this.drawBoard = function(){
-        canvas.height = CANVASHEIGHT;
-        canvas.width = CANVASWIDTH;
-        ctx.fillStyle=BACKGROUNDCOLOR;
-        ctx.fillRect(0,0,CANVASHEIGHT,CANVASWIDTH);
-        ctx.strokeRect(0,0,CANVASHEIGHT,CANVASWIDTH);
+        this.canvas.height = CANVASHEIGHT;
+        this.canvas.width = CANVASWIDTH;
+        this.ctx = this.canvas.getContext('2d');
+
+        this.ctx.fillStyle=BACKGROUNDCOLOR;
+        this.ctx.fillRect(0,0,CANVASHEIGHT,CANVASWIDTH);
+        this.ctx.strokeRect(0,0,CANVASHEIGHT,CANVASWIDTH);
     };
     
     this.drawLineNumber = function(){
         if(drawLineNumI >= lineNum)
             return;
-        ctx.font = BACKGROUNDFONT;
-        ctx.strokeText(drawLineNumI+1, 7, (drawLineNumI+1)*SIZE + 4);
-        ctx.strokeText(String.fromCharCode(lineNum-drawLineNumI-1+65), (lineNum-drawLineNumI)*SIZE -4, 15);
-        ctx.strokeText(lineNum-drawLineNumI, CANVASWIDTH-18, (lineNum-drawLineNumI)*SIZE+4);
-        ctx.strokeText(String.fromCharCode(drawLineNumI+65), (drawLineNumI+1)*SIZE -4, CANVASHEIGHT-8);
+        this.ctx.font = BACKGROUNDFONT;
+        this.ctx.strokeText(drawLineNumI+1, 7, (drawLineNumI+1)*SIZE + 4);
+        this.ctx.strokeText(String.fromCharCode(lineNum-drawLineNumI-1+65), (lineNum-drawLineNumI)*SIZE -4, 15);
+        this.ctx.strokeText(lineNum-drawLineNumI, CANVASWIDTH-18, (lineNum-drawLineNumI)*SIZE+4);
+        this.ctx.strokeText(String.fromCharCode(drawLineNumI+65), (drawLineNumI+1)*SIZE -4, CANVASHEIGHT-8);
         drawLineNumI++;
     };
     
@@ -27,27 +29,27 @@ function Goban(_lineNum){
         if(drawLineI >= lineNum)
             return;
     
-        ctx.fillStyle = '#000000';
-        ctx.moveTo(SIZE, SIZE+drawLineI*SIZE);
-        ctx.lineTo(SIZE+GOBANWIDTH, SIZE+drawLineI*SIZE);
+        this.ctx.fillStyle = '#000000';
+        this.ctx.moveTo(SIZE, SIZE+drawLineI*SIZE);
+        this.ctx.lineTo(SIZE+GOBANWIDTH, SIZE+drawLineI*SIZE);
     
-        ctx.moveTo(SIZE+drawLineI*SIZE, SIZE);
-        ctx.lineTo(SIZE+drawLineI*SIZE, SIZE+GOBANHEIGHT);
+        this.ctx.moveTo(SIZE+drawLineI*SIZE, SIZE);
+        this.ctx.lineTo(SIZE+drawLineI*SIZE, SIZE+GOBANHEIGHT);
     
-        ctx.stroke();
+        this.ctx.stroke();
         drawLineI++; 
     };
     
     this.drawStar = function(){
-        ctx.fillStyle='#000000';
+        this.ctx.fillStyle='#000000';
         pp = [4, 10, 16];
         for(i=0;i<3;i++){
             for(var j=0;j<3;j++){
-                ctx.moveTo(SIZE*pp[i], SIZE*pp[j]);
-                ctx.arc(SIZE*pp[i], SIZE*pp[j], 5, 0, Math.PI*2, true);
+                this.ctx.moveTo(SIZE*pp[i], SIZE*pp[j]);
+                this.ctx.arc(SIZE*pp[i], SIZE*pp[j], 5, 0, Math.PI*2, true);
             }
         }
-        ctx.fill();
+        this.ctx.fill();
     };
 
     this.drawGoban = function(){
