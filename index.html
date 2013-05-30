@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/custom.css" />
-    <script src="js/jquery-2.0.1.min.js"></script> 
-    <script type="text/javascript" src="js/config.js"></script>
+    <script src="js/libs/jquery-2.0.1.min.js"></script> 
+    <script type="text/javascript" src="js/variables.js"></script>
     <script type="text/javascript" src="js/helper.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 
 <body>
     <canvas id="goban"></canvas>
+    <!--<canvas id="mouseStone"></canvas>-->
 
 	<script type="text/javascript" src="js/JGoban.js"></script>   
     
@@ -17,28 +19,6 @@
     <div id="getY"></div>
 
     <script type="text/javascript">
-        createGoban();
-
-        var canvas = document.getElementById('goban');
-        var ctx = canvas.getContext('2d');
-        var gx;
-        var gy;
-        canvas.addEventListener('mousemove', function onMouseMove(evt){
-            gx = evt.layerX;
-            gy = evt.layerY;
-            gg = toPoint(gx, gy);
-            gx = gg[0];
-            gy = gg[1];
-            document.getElementById('getX').innerHTML = "mouse X:" + gx;
-            document.getElementById('getY').innerHTML = "mouse Y:" + gy;
-
-            createGoban();
-            var tmp = toCoor(gx, gy);
-            ctx.fillStyle='#000000';
-            ctx.moveTo(tmp[0], tmp[1]);
-            ctx.arc(tmp[0], tmp[1], 15, 0, Math.PI*2, true);
-            ctx.fill();
-        });
-        
+        main();
     </script>
 </body>
