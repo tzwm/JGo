@@ -2,12 +2,8 @@ function toPoint(x, y){
     x = x-XOFFSET;
     y = y-YOFFSET;
 
-    var xx = Math.floor(x / SIZE);
-    var yy = Math.floor(y / SIZE);
-    if(x/SIZE - xx >= 0.5)
-        xx = xx+1;
-    if(x/SIZE - yy >= 0.5)
-        yy = yy+1;
+    var xx = Math.floor(x / SIZE +0.5);
+    var yy = Math.floor(y / SIZE +0.5);
     if(xx<1)
        xx = 1;
     if(xx>LINENUM)
