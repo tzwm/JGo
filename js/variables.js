@@ -9,9 +9,9 @@ var BACKGROUNDFONT = '10px Sans-serif';
 var COLORBLACK = '#000000';
 var COLORWHITE = '#FFFFFF';
 var STONECOLOR = [COLORBLACK, COLORWHITE]; 
+var STONEIMG = ["img/stoneBlack.png", "img/stoneWhite.png"];
 
-var XOFFSET = 8;
-var YOFFSET = 8;
+var DIRECTION = new Array([-1, 1, 0, 0], [0, 0, -1, 1]); 
 
 var THIS;
 
