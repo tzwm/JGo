@@ -6,15 +6,19 @@
     <script src="js/libs/jquery-2.0.1.min.js"></script> 
     <script type="text/javascript" src="js/variables.js"></script>
     <script type="text/javascript" src="js/helper.js"></script>
-    <script type="text/javascript" src="js/JGoban.js"></script>
+    <script type="text/javascript" src="js/goban.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/JGobanView.js"></script>   
+	<script type="text/javascript" src="js/gobanView.js"></script>   
 	<script type="text/javascript" src="js/stone.js"></script>   
+	<script type="text/javascript" src="js/go.js"></script>   
 
 </head>
 
 <body>
     <canvas id="goban"></canvas>
+    <p id="scoreBlack">black:</p>
+    <p id="scoreWhite">white:</p>
+    <button onclick="go.displayScore()">click</button>
 
     <script type="text/javascript">
         main();

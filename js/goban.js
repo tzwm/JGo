@@ -65,7 +65,6 @@ function JGoban(){
     };
 
     this.clearDead = function(x, y){
-        this.initStoneTmp();
         var getTmp = false;
 
         for(var i=0;i<4;i++){
@@ -76,6 +75,7 @@ function JGoban(){
             if(this.stones10[xx][yy] != this.numCurrent % 2)
                 continue;
 
+            this.initStoneTmp();
             var liberty = this.getStonesLiberty(xx, yy);
             if(liberty === 0){
                 if(this.removeStones(xx, yy) == 1){
