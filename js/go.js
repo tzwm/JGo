@@ -79,9 +79,16 @@ function Go(){
     };
 
     this.displayScore = function(){
-        var tmp = this.getScore();
+        var tmp = go.getScore();
+        
+        if(!tmp){
+            sidebar.showScore("Nobody", -1);
+            return;
+        }
 
-        document.getElementById("scoreBlack").innerHTML = this.scoreBlack;
-        document.getElementById("scoreWhite").innerHTML = this.scoreWhite;
+        if(go.scoreBlack >= 185)
+            sidebar.showScore(NAMEPLAYER[0], go.scoreBlack);
+        else
+            sidebar.showScore(NAMEPLAYER[1], go.scoreWhite);
     };
 }

@@ -7,6 +7,8 @@ function begin(){
     gobanView = new GobanView();
     goban = new JGoban();
     go = new Go();
+    sidebar = new Sidebar();
+
     gobanView.animDrawGoban();
 }
 

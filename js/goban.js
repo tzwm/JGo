@@ -118,6 +118,9 @@ function JGoban(){
 
         this.koPoint = null;
         this.clearDead(pos[0], pos[1]);
+
+        sidebar.setPlayer(NAMEPLAYER[this.numCurrent % 2]);        
+        sidebar.setNumCur(this.numCurrent);
     };
 
     this.canPlay = function(pos){

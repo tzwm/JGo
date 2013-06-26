@@ -62,8 +62,10 @@ function Welcome(){
     setTimeout(this.showForm, 2000);
 
     this.goAway = function(){
-        NAMEPLAYER1 = document.getElementById("player1").value;
-        NAMEPLAYER2 = document.getElementById("player2").value;
+        if(document.getElementById("player1").value)
+            NAMEPLAYER[0] = document.getElementById("player1").value;
+        if(document.getElementById("player2").value)
+            NAMEPLAYER[1] = document.getElementById("player2").value;
 
         $(".welDiv").animate({
             margin: '50px',
