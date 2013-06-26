@@ -15,4 +15,5 @@ var DIRECTION = new Array([-1, 1, 0, 0], [0, 0, -1, 1]);
 
 var THIS;
 
-
+var NAMEPLAYER1 = "player1";
+var NAMEPLAYER2 = "player2";

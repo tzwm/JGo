@@ -1,4 +1,32 @@
-#goban{
-    margin: 30px;
+body{
+    text-align: center;
 }
 
+.welTitle{
+    margin-top: 200px;
+    font-size: 120px;
+    color: #553300;
+}
+
+.welDiv{
+    text-align: center;
+}
+
+.welBtn{
+    margin-top: 10px;
+}
+
+.welFrom{
+    margin-top: 100px;
+}
+
+.welInput{
+    width: 200px;
+    font-size: 30px;
+    height: auto;
+}
+
+.goban{
+    margin-left: 200px;
+    margin-top: 80px;
+}

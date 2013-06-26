@@ -1,5 +1,8 @@
 function GobanView(){
-    this.ctx = gobanCanvas.getContext('2d');
+    this.gobanCanvas = document.createElement("canvas");
+    this.gobanCanvas.className = "goban";
+    $("body").append(this.gobanCanvas);
+    this.ctx = this.gobanCanvas.getContext('2d');
 
     this.drawMouseStone = function(pos, color){
         this.ctx.beginPath();
@@ -19,8 +22,8 @@ function GobanView(){
     };
     
     this.drawBoard = function(){
-        gobanCanvas.height = CANVASHEIGHT;
-        gobanCanvas.width = CANVASWIDTH;
+        this.gobanCanvas.height = CANVASHEIGHT;
+        this.gobanCanvas.width = CANVASWIDTH;
     
         this.ctx.fillStyle=BACKGROUNDCOLOR;
         this.ctx.fillRect(0,0,CANVASHEIGHT,CANVASWIDTH);
@@ -132,7 +135,7 @@ function GobanView(){
         gobanView.reDraw();
     };
 
-    gobanCanvas.addEventListener('mousemove', this.onMoveMouseListener);
-    gobanCanvas.addEventListener('click', this.onClickMouseListener);
+    this.gobanCanvas.addEventListener('mousemove', this.onMoveMouseListener);
+    this.gobanCanvas.addEventListener('click', this.onClickMouseListener);
 }
 

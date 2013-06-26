@@ -64,8 +64,11 @@ function Go(){
 
                this.colorTmp = -1;
                var tot = this.checkPoint(i, j);
-               if(tot === -1)
+               if(tot === -1){
+                   this.scoreBlack = -1;
+                   this.scoreWhite = -1;
                    return false; 
+               }
                if(this.colorTmp === 0)
                    this.scoreBlack += tot;
                if(this.colorTmp === 1)
@@ -76,7 +79,8 @@ function Go(){
     };
 
     this.displayScore = function(){
-        this.getScore();
+        var tmp = this.getScore();
+
         document.getElementById("scoreBlack").innerHTML = this.scoreBlack;
         document.getElementById("scoreWhite").innerHTML = this.scoreWhite;
     };
