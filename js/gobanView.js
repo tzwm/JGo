@@ -3,6 +3,13 @@ function GobanView(){
     this.gobanCanvas.className = "goban";
     $("body").append(this.gobanCanvas);
     this.ctx = this.gobanCanvas.getContext('2d');
+    this.imgs = new Array();
+    this.imgs[0] = new Image();
+    this.imgs[0].src = STONEIMG[0];
+    this.imgs[1] = new Image();
+    this.imgs[1].src = STONEIMG[1];
+
+
 
     this.drawMouseStone = function(pos, color){
         this.ctx.beginPath();
@@ -14,11 +21,12 @@ function GobanView(){
     };
     
     this.drawStone = function(pos, color){
-        img = new Image();
-        img.src = STONEIMG[color];
+        this.ctx.drawImage(this.imgs[color], pos[0]-13, pos[1]-13, 26, 26);
 
-        this.ctx.drawImage(img, pos[0]-13, pos[1]-13, 26, 26);
+/*        img = new Image();*/
+        //img.src = STONEIMG[color];
 
+        /*this.ctx.drawImage(img, pos[0]-13, pos[1]-13, 26, 26);*/
     };
     
     this.drawBoard = function(){
