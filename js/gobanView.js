@@ -110,7 +110,8 @@ function GobanView(){
     this.onMoveMouseListener = function(evt){
         gobanView.reDraw();
 
-        var point = toPoint(evt.layerX - this.offsetLeft, evt.layerY - this.offsetTop);
+        //var point = toPoint(evt.layerX - this.offsetLeft, evt.layerY - this.offsetTop);
+        var point = toPoint(evt.layerX - gobanView.gobanCanvas.offsetLeft, evt.layerY - gobanView.gobanCanvas.offsetTop);
         var x = point[0];
         var y = point[1];
         if(x<0)
@@ -126,7 +127,8 @@ function GobanView(){
     };
 
     this.onClickMouseListener = function(evt){
-        var point = toPoint(evt.layerX - this.offsetLeft, evt.layerY - this.offsetTop);
+        //var point = toPoint(evt.layerX - this.offsetLeft, evt.layerY - this.offsetTop);
+        var point = toPoint(evt.layerX - gobanView.gobanCanvas.offsetLeft, evt.layerY - gobanView.gobanCanvas.offsetTop);
         var x = point[0];
         var y = point[1];
         if(x<0 || x>=LINENUM)
@@ -143,7 +145,9 @@ function GobanView(){
         gobanView.reDraw();
     };
 
-    this.gobanCanvas.addEventListener('mousemove', this.onMoveMouseListener);
-    this.gobanCanvas.addEventListener('click', this.onClickMouseListener);
+    //this.gobanCanvas.addEventListener('mousemove', this.onMoveMouseListener);
+    //this.gobanCanvas.addEventListener('click', this.onClickMouseListener);
+    document.body.addEventListener('mousemove', this.onMoveMouseListener);
+    document.body.addEventListener('click', this.onClickMouseListener);
 }
 
