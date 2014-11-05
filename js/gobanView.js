@@ -111,7 +111,8 @@ function GobanView(){
         gobanView.reDraw();
 
         //var point = toPoint(evt.layerX - this.offsetLeft, evt.layerY - this.offsetTop);
-        var point = toPoint(evt.layerX - gobanView.gobanCanvas.offsetLeft, evt.layerY - gobanView.gobanCanvas.offsetTop);
+        //var point = toPoint(evt.layerX - gobanView.gobanCanvas.offsetLeft, evt.layerY - gobanView.gobanCanvas.offsetTop);
+        var point = toPoint(evt.layerX, evt.layerY); // tested for Mac OS/Chrome
         var x = point[0];
         var y = point[1];
         if(x<0)
@@ -128,7 +129,8 @@ function GobanView(){
 
     this.onClickMouseListener = function(evt){
         //var point = toPoint(evt.layerX - this.offsetLeft, evt.layerY - this.offsetTop);
-        var point = toPoint(evt.layerX - gobanView.gobanCanvas.offsetLeft, evt.layerY - gobanView.gobanCanvas.offsetTop);
+        //var point = toPoint(evt.layerX - gobanView.gobanCanvas.offsetLeft, evt.layerY - gobanView.gobanCanvas.offsetTop);
+        var point = toPoint(evt.layerX, evt.layerY); // tested for Mac OS/chrome
         var x = point[0];
         var y = point[1];
         if(x<0 || x>=LINENUM)
